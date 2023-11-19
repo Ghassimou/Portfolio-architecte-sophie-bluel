@@ -132,23 +132,18 @@ table {
 }
 /** end reset css**/
 body {
-  max-width: 1140px;
+  /* max-width: 1140px; */
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
-  padding-top: 50px;
-  padding-right: 150px;
-  padding-bottom: 50px;
-  padding-left: 150px;
-  
 }
+
 header {
   display: flex;
   justify-content: space-between;
-  /* ajout nav bar black */
-  flex-wrap: wrap;
-  /* margin: 50px 0; */
+  margin: 50px; 
 }
+
 /* Barre 'edition noir */
 .handle_edit {
   flex-direction: row;
@@ -165,15 +160,25 @@ header {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 38px;
+  margin-bottom: 38px; 
 }
 
 .handle_edit .edit_icon {
   color: #fff;
 }
 
+.nav-project{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 150px;
+  margin-right: 150px;
+
+
+}
+
 section {
-  margin: 50px 0;
+  margin: 50px 245px;
   position: relative;
 }
 
@@ -209,6 +214,15 @@ nav ul {
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
+  /* add */
+  color: #000;
+
+text-align: center;
+font-family: Work Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
 li:hover {
@@ -598,9 +612,24 @@ border: none;
   align-items: center;
  
 }
+/* login */
 .logIn{
   padding-top: 150px;
 }
+/* margin */
+.margin{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding:0;
+}
+
+.padding{
+  padding-top: 50px;
+  padding-right: 150px;
+  padding-bottom: 50px;
+  padding-left: 150px;
+}
+
 #contact > * {
   text-align: center;
 }
@@ -643,21 +672,34 @@ input[type="submit"] {
 #contact a{
   text-decoration: none;
   text-align: center;
+  color: #3D3D3D;
+font-family: Work Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-decoration-line: underline;
 }
 
 footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+  max-width: 1440px;
+  height: 60px;
+  color: #000;
 }
 .txt-login{
-height: 60px;
+font-family: Work Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
 }
 /* ******************* */
 #filters .active{
   background-color: #1d6154;
     color: white;
-
 }
 /* ******************* */
 

@@ -8,10 +8,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header>
+    <header class="margin">
         <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
         <nav>
             <ul>
@@ -22,17 +22,17 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main >
 	<section id="contact" class="logIn">
 		<h2>Log In</h2>
 		<form action="#" method="POST" id="logIn">
 			<label for="email">E-mail</label>
 			<input type="email" name="email" id="email">
-			<small></small>
+			<small class="text-success text-danger "></small>
 			<span></span>
             <label for="password">Mot de passe</label>
 			<input type="password" name="password" id="password">
-			<small></small>
+			<small class="text-success text-danger "></small>
 			<span></span>
 			<input type="submit" name="submit" value="Se connecter" id="submit">
             <a href="#">Mot de passe oublié</a>    
@@ -40,13 +40,13 @@
 	</section>
 </main>
 
-<footer class="txt-login">
+<footer class="footer">
 	<nav>
 		<ul>
-			<li>Mentions Légales</li>
+			<li class="txt-login">Mentions Légales</li>
 		</ul>
 	</nav>
 </footer>
-<script src="login.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
