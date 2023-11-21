@@ -141,45 +141,13 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px; 
-}
-
-/* Barre 'edition noir */
-.handle_edit {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  column-gap: 21px;
-  width: 1440px;
-  height: 59px;
-  background: #000;
-  color: #fff;
-  text-align: center;
-  font-family: Work Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 38px; 
-}
-
-.handle_edit .edit_icon {
-  color: #fff;
-}
-
-.nav-project{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 150px;
-  margin-right: 150px;
-
-
+  margin: 50px 0;
+  flex-wrap: wrap;
 }
 
 section {
   margin: 50px 245px;
-  position: relative;
+  /* position: relative; */
 }
 
 h1 {
@@ -189,6 +157,8 @@ h1 {
   font-size: 22px;
   font-weight: 800;
   color: #b1663c;
+  /* add css */
+  padding-left: 150px;
 }
 
 h1 > span {
@@ -202,39 +172,54 @@ h2 {
   font-weight: 700;
   font-size: 30px;
   color: #1d6154;
-
+  /* add css */
   display: flex;
   align-items: center;
 }
+
 nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
+  color: #000;
 }
+
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
   /* add */
-  color: #000;
+  text-align: center;
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
 
-text-align: center;
-font-family: Work Sans;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+nav li a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
 }
 
 li:hover {
   color: #b1663c;
 }
+
+li a:hover {
+  color: #b1663c;
+}
+
 #introduction {
   display: flex;
   align-items: center;
 }
+
 #introduction figure {
   flex: 1;
 }
+
 #introduction img {
   display: block;
   margin: auto;
@@ -244,6 +229,7 @@ li:hover {
 #introduction article {
   flex: 1;
 }
+
 #introduction h2 {
   margin-bottom: 1em;
 }
@@ -251,12 +237,13 @@ li:hover {
 #introduction p {
   margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
   text-align: center;
   /* margin-bottom: 1em; */
-
   justify-content: center;
 }
+
 .gallery {
   width: 100%;
   display: grid;
@@ -266,8 +253,12 @@ li:hover {
 }
 
 .gallery img {
+  margin-top: -7px;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
 /* ********************************************** */
 
 .js-modal {
@@ -280,11 +271,13 @@ li:hover {
   line-height: normal;
   padding-left: 10px;
 }
+
 .fa-pen-to-square {
   color: #000;
   font-size: 14px;
   padding-left: 31px;
 }
+
 .modal {
   overflow: auto;
   position: fixed;
@@ -337,6 +330,7 @@ li:hover {
   width: 78.123px;
   height: 104.08px;
 }
+
 figure {
   position: relative;
 }
@@ -349,6 +343,7 @@ figure {
   border-radius: 2px;
   font-size: 9px;
 }
+
 .fa-trash-can {
   color: #fff;
 }
@@ -361,6 +356,7 @@ figure {
   justify-content: center;
   border-top: 2px solid #b3b3b3;
 }
+
 /* modif btn */
 #add-picture {
   width: 237px;
@@ -370,6 +366,7 @@ figure {
   color: #fff;
   background-color: #1d6154;
 }
+
 /* ********************************************** */
 /* Modal2 */
 .modal1 {
@@ -403,12 +400,12 @@ figure {
   cursor: pointer;
 }
 
- .upload_picture_modal {
+.upload_picture_modal {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-} 
+}
 
 #modal_title_picture {
   color: #000;
@@ -422,7 +419,7 @@ figure {
   padding-bottom: 36px;
 }
 
-.picture_preview{
+.picture_preview {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -431,19 +428,11 @@ figure {
   border-radius: 3px;
   padding-top: 13px;
   background: #e8f1f6;
-  
 }
 
 .fa-image {
   font-size: 70px;
   color: #b9c5cc;
-}
-
- img{
-  margin-top: -7px;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 label[for="input_upload_file"] {
@@ -476,7 +465,7 @@ label[for="input_upload_file"] {
   line-height: normal;
 }
 
-.input_category_image{
+.input_category_image {
   margin-top: 30px;
 }
 
@@ -507,13 +496,12 @@ label[for="input_upload_file"] {
   border: none;
   background: #fff;
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
-
 }
 
 .category {
   margin-top: 21px;
-  border-bottom: 2px solid #B3B3B3;;
-} 
+  border-bottom: 2px solid #b3b3b3;
+}
 
 .category label {
   width: 100%;
@@ -521,7 +509,7 @@ label[for="input_upload_file"] {
   /* margin-bottom: 10px; */
 }
 
-#category_select{
+#category_select {
   width: 420px;
   height: 51px;
   margin-top: 21px;
@@ -533,19 +521,20 @@ label[for="input_upload_file"] {
 .submit_btn {
   margin-top: 32px;
   width: 237px;
-height: 36px;
-border-radius: 60px;
-background: #A7A7A7;
+  height: 36px;
+  border-radius: 60px;
+  background: #a7a7a7;
 
-color: #FFF;
-text-align: center;
-font-family: Syne;
-font-size: 14px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-border: none;
+  color: #fff;
+  text-align: center;
+  font-family: Syne;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
 }
+
 /* ************************************************** */
 .text-danger {
   color: #d65353;
@@ -564,7 +553,8 @@ border: none;
   text-align: center;
   padding-top: 20px;
 }
-/* ************************************************** */
+
+/* ************************ */
 
 #filters {
   display: flex;
@@ -602,7 +592,8 @@ border: none;
   padding: 9px;
   background-color: #fff;
 }
-/* *************** */
+
+/* ********************** */
 #contact {
   width: 50%;
   margin: auto;
@@ -610,20 +601,21 @@ border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
-}
-/* login */
-.logIn{
-  padding-top: 150px;
-}
-/* margin */
-.margin{
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding:0;
 }
 
-.padding{
+/* login */
+.logIn {
+  padding-top: 150px;
+}
+
+/* margin */
+.margin {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+.padding {
   padding-top: 50px;
   padding-right: 150px;
   padding-bottom: 50px;
@@ -633,10 +625,12 @@ border: none;
 #contact > * {
   text-align: center;
 }
+
 #contact h2 {
   margin-bottom: 20px;
   text-align: center;
 }
+
 #contact form {
   text-align: left;
   margin-top: 30px;
@@ -650,9 +644,11 @@ border: none;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
   margin: 2em 0 1em 0;
 }
+
 #contact textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -669,37 +665,75 @@ input[type="submit"] {
   border-radius: 60px;
 }
 
-#contact a{
+#contact a {
   text-decoration: none;
   text-align: center;
-  color: #3D3D3D;
-font-family: Work Sans;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-decoration-line: underline;
+  color: #3d3d3d;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
 }
 
 footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+  margin-bottom: 0;
+  padding-right: 107px;
   max-width: 1440px;
   height: 60px;
   color: #000;
 }
-.txt-login{
-font-family: Work Sans;
-font-size: 14px;
-font-style: normal;
-font-weight: 300;
-line-height: normal;
+
+.txt-login {
+  font-family: Work Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
+
 /* ******************* */
-#filters .active{
+#filters .active {
   background-color: #1d6154;
-    color: white;
+  color: white;
 }
+
 /* ******************* */
 
+/* mon css */
+/* Barre 'edition noir */
+.handle_edit {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 21px;
+  width: 1440px;
+  height: 59px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: -50px;
+  margin-bottom: 38px;
+
+}
+
+.handle_edit .edit_icon {
+  color: #fff;
+}
+
+.nav-project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 150px;
+}
+/* mon css */
