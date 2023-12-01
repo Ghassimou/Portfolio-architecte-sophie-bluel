@@ -1,5 +1,6 @@
 function login(email, password) {
   let url = "http://localhost:5678/api/users/login";
+ 
   fetch(url, {
     method: "POST",
     headers: {
@@ -13,24 +14,19 @@ function login(email, password) {
   })
     .then((response) => response.json())
     .then((login) => {
-      console.log(login);
       if (login.token) {
         localStorage.setItem("token", login.token);
-        alert("Vous êtes connecté.")
         window.location.href = "./index.html";
-       
-        // logOut.textContent = "logout";
+        alert("Vous êtes connecté.")
       } else {
         //messsage de erreur loging
         console.error("Le token n'a pas été trouvé");
-        span.innerHTML = "Votre adresse e-mail ou mot de passe est incorrecte";
-        //créer une span dans le html
-        span.classList.add("text-danger");
-        span.style.display = "block";
+        alert("Votre adresse e-mail ou mot de passe est incorrecte")
       }
     })
     .catch((error) => {
       console.error("Erreur : " + error);
+      console.error( "Une erreur s'est produite lors de la connexion.");
     });
 }
 
@@ -71,9 +67,9 @@ const emailCheck = function (inputEmail) {
 
   //Test de l'expression regulière
   if (emailRegExp.test(inputEmail.value)) {
-    // small.innerHTML = "Votre adresse e-mail est validé";
-    // small.classList.remove("text-danger");
-    // small.classList.add("text-success");
+    small.innerHTML = "Votre adresse e-mail est valide";
+    small.classList.remove("text-danger");
+    small.classList.add("text-success");
     return true;
   } else {
     small.innerHTML = "Votre adresse e-mail n'est pas valide";
@@ -117,42 +113,4 @@ const passwordCheck = function (inputPassword) {
     return false;
   }
 };
-
-// *********************************************************
-//Gestion administration
-
-// function loginStatus (e) {
-  
-//   const logOut = document.getElementById("logOut");
-//   console.log(logOut, "bouton de connection");
-//   const userAdmin = localStorage.getItem("token");
-//   console.log(userAdmin, "le token");
-//   const adminDashbord = document.querySelector(".js-modal");
-//   console.log(adminDashbord, "le modal ajout photo");
-//   const filtersParent = document.getElementById("filters");
-//   console.log(filtersParent, "les boutons de filtres");
-//   const handleEdit = document.querySelector(".handle_edit");
-//   console.log(handleEdit, "la barre noir");
-
-//   if (userAdmin) {
-//     logOut.textContent = "logout";
-//     console.log(logOut, "bouton de deconnection");
-//     adminDashbord.style.display = null;
-//     handleEdit.style.display = null;
-//     filtersParent.style.display = "none"
-    
-//   } else {
-//     logOut.textContent = "login";
-//     adminDashbord.style.display = "none";
-//   }
-// }
-
-// logOut.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   console.log(logOut, "click sur bouton de connection");
-//   loginStatus();
-//   localStorage.removeItem("token");
-//   alert("Vous êtes déconnecté.");
-// });
-
 

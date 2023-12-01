@@ -19,7 +19,6 @@ function fetchGallery() {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data, "les projets")
       allWorks = data; // Sauvegarde les projets dans la variable allWorks
       displayGallery(data); // Applle à la fonction qui affiche les projets
     })
@@ -70,21 +69,16 @@ function displayFilters() {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-
+      // console.log(data);
       // Capture de l'élément classe "filters"
       const filtersParent = document.getElementById("filters");
-
       // Création de l'élément bouton
       const defaultButton = document.createElement("button");
-
       // Ajout de la classe "default_filter" dans l'élément bouton
       defaultButton.classList.add("default_filter");
       defaultButton.classList.add("active");
-
       // Affichage des éléments créés dans le html
       defaultButton.textContent = "Tous";
-
       // Adding Mouse Click
       defaultButton.addEventListener("click", function () {
         handleFilter("Tous");
@@ -92,23 +86,15 @@ function displayFilters() {
       filtersParent.appendChild(defaultButton);
 
       for (let category of data) {
-        // console.log(data);
-        // console.log(category);
-
         // Création de 3 éléments bouton
         const button = document.createElement("button");
-
         // Ajout de la classe "category_filter" dans les 3 éléments boutons
         button.classList.add("category_filter");
-
         // Affichage des 3 éléments dans le html
         button.textContent = category.name;
-        // console.log(category.id);
-
         // Adding Mouse Click
         button.addEventListener("click", function () {
           handleFilter(category.id);
-
           // Ajout de la classe "active" dans les 3 éléments boutons
           button.classList.add("active");
         });
@@ -131,8 +117,6 @@ displayFilters();
 
 function loginStatus() {
   const userAdmin = localStorage.getItem("token");
-  console.log(userAdmin, "le token");
-
   if (userAdmin) {
     const logOut = document.getElementById("logOut");
     logOut.style.display = "flex";
@@ -147,7 +131,7 @@ function loginStatus() {
     logIn.style.display = "flex";
 
     const handleEdit = document.querySelector(".handle_edit");
-    console.log(handleEdit, "la barre noir");
+  
     handleEdit.style.display = "none";
 
     const adminDashbord = document.querySelector(".adminDashbord");
@@ -186,10 +170,10 @@ function displayModalGallery(works) {
 /* ********************************************************** */
 /* ********************************************************** */
 // Window modal gallery
-
 let modal = null;
 const openModal = function (e) {
   e.preventDefault();
+  document.body.style.overflow = 'hidden';
   // Capture de l'attribut href
   const target = document.querySelector(e.target.getAttribute("href"));
   target.style.display = null;
@@ -210,6 +194,7 @@ const openModal = function (e) {
 const closeModal = function (e) {
   if (modal === null) return;
   if (e !== null) e.preventDefault();
+  document.body.style.overflow = 'scroll'; 
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
   modal.removeAttribute("aria-modal");
@@ -224,16 +209,16 @@ const closeModal = function (e) {
 };
 /* ********************************************************** */
 /* ********************************************************** */
-// Window modal2 gallery
-let modal2 = null;
+// Window modalAdd gallery
+let modalAdd = null;
 const modalAddPicture = function () {
-  const openModal2 = document.getElementById("modal2");
-  openModal2.style.display = null;
+  const openModalAdd = document.getElementById("modal-add");
+  openModalAdd.style.display = null;
   modal.style.display = "none";
-  modal2 = openModal2;
-  modal2.addEventListener("click", closeModal2);
-  modal2.querySelector(".js-close-icon").addEventListener("click", closeModal2);
-  modal2
+  modalAdd = openModalAdd;
+  modalAdd.addEventListener("click", closeModalAdd);
+  modalAdd.querySelector(".js-close-icon").addEventListener("click", closeModalAdd);
+  modalAdd
     .querySelector(".js-modal-stop")
     .addEventListener("click", stopPropagation);
 };
@@ -241,25 +226,25 @@ const modalAddPicture = function () {
 /* ********************************************************** */
 /* ********************************************************** */
 
-// Fermeture de la modale
-const closeModal2 = function (e) {
-  if (modal2 === null) return;
+// Fermeture de la modal
+const closeModalAdd = function (e) {
+  if (modalAdd === null) return;
   if (e !== null) e.preventDefault();
-  modal2.style.display = "none";
-  modal2.removeEventListener("click", closeModal2);
-  modal2 = null;
+  modalAdd.style.display = "none";
+  modalAdd.removeEventListener("click", closeModalAdd);
+  modalAdd = null;
 
-  clearModal2Fields();
+  clearModalAddFields();
 };
 
 /* ********************************************************** */
 /* ********************************************************** */
-// Function redirection sur le modal 1
+// Function redirection sur le modalAdd
 const backModal = function () {
-  modal2.style.display = "none";
+  modalAdd.style.display = "none";
   modal.style.display = null;
-  modal2.addEventListener("click", closeModal2);
-  modal2 = null;
+  modalAdd.addEventListener("click", closeModalAdd);
+  modalAdd = null;
 };
 
 /* ********************************************************** */
@@ -274,22 +259,21 @@ const stopPropagation = function (e) {
 // Mes fonction click (addEventListener)
 //**********************************************************
 
-// Appel à la fonction clique ouverture de la modal1
+// Appel à la fonction clique ouverture de la modalPreview
 document.querySelectorAll(".js-modal").forEach((a) => {
   a.addEventListener("click", openModal);
 });
 
-// Appel à la fonction clique ouverture de la modal2
-
+// Appel à la fonction clique ouverture de la modalAdd
 const addPicture = document.getElementById("add-picture");
 addPicture.addEventListener("click", function (e) {
   e.preventDefault();
   modalAddPicture();
 });
 
-// Appel à la fonction fermeture de la modal
-const backModal1 = document.querySelector(".js-back-icon");
-backModal1.addEventListener("click", (e) => {
+// Appel à la fonction fermeture de la modalAdd
+const backModalAdd = document.querySelector(".js-back-icon");
+backModalAdd.addEventListener("click", (e) => {
   e.preventDefault();
   backModal();
 });
@@ -304,15 +288,12 @@ const btnUploadFile = document.getElementById("btn_upload_file");
 // On simule le click sur le boutton l'abel
 btnUploadFile.onclick = () => {
   inputUploadFile.click();
-  console.log(btnUploadFile);
 };
 
 // Ajout d' un événement change sur la fonction preview file
 inputUploadFile.addEventListener("change", previewFile);
 
 function previewFile() {
-  // console.log(inputUploadFile, "toto btn input");
-
   // Verification de l'extension du fichier
   const file_extension_regex = /\.(jpe?g|png|gif)$/i;
 
@@ -329,18 +310,15 @@ function previewFile() {
 
   // Fonction de chargement des images dans la gallerie
   file_reader.addEventListener("load", (event) => displayImage(event, file));
-  // console.log(file, "toto function load");
 }
 
 // Affichage des images dans la gallerie
 function displayImage(event, file) {
-  // console.log(event, "toto function click");
   const fileUrl = event.target.result;
   const displayPicture = document.createElement("img")
   displayPicture.src = fileUrl;
   displayPicture.id = "display-picture"
   const picturePreview = document.querySelector(".picture_preview");
-  // console.log(picture_preview, "toto champs affichage image");
   picturePreview.appendChild(displayPicture);
   const fileUploder = document.querySelector(".file_uploder");
   fileUploder.style.display = "none"
@@ -391,12 +369,9 @@ const deleteImage = function (workId) {
 const form = document.getElementById("form");
 
 // Récupération de l'élément champ input
-//const inputUploadFile = document.getElementById("input_upload_file");
+
 const inputTitle = document.getElementById("input_title");
 const categorySelect = document.getElementById("category_select");
-
-// Initialisation de la constance FormData
-// const formData = new FormData();
 
 // Fonction pour envoyer l'image
 const sendImage = async (e) => {
@@ -423,8 +398,8 @@ const sendImage = async (e) => {
       const data = await response.json();
       alert("L'image a bien été envoyée.");
       fetchGallery();
-      closeModal2(null);
-      clearModal2Fields();
+      closeModalAdd(null);
+      clearModalAddFields();
       resetForm();
     } else {
       alert("Veillez remplir tous les champs du formulaire.");
@@ -457,13 +432,10 @@ form.addEventListener("change", background);
 // *********************************************************
 
 // Suppression des champs de saissie et d image
-function clearModal2Fields() {
-  console.log(clearModal2Fields, "Function vide champs");
-  // const inputUploadFile = document.getElementById("input_upload_file");
+function clearModalAddFields() {
   const inputTitle = document.getElementById("input_title");
   const categorySelect = document.getElementById("category_select");
 
-  // inputUploadFile.value = "";
   inputTitle.value = "";
   categorySelect.value = "0";
 }

@@ -28,8 +28,8 @@
         <i class="fa-regular fa-pen-to-square edit_icon"></i>
         <p class="edit_txt">Mode édition</p>
       </nav>
-      <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
       <nav class="nav-project">
+        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
         <ul>
           <li>Projets</li>
           <li>Contact</li>
@@ -68,21 +68,22 @@
           Mes Projets
           <span class="adminDashbord">
             <i class="fa-solid fa-pen-to-square"></i>
-            <a href="#modal1" class="js-modal">Modifier</a>
+            <!-- modif name modal1 modal-preview-->
+            <a href="#modal-preview" class="js-modal">Modifier</a>
           </span>
         </h2>
         <!-- ********* Fenétre modal1 ********* -->
         <aside
-          id="modal1"
+          id="modal-preview"
           class="modal"
           aria-hidden="true"
           role="dialog"
-          aria-labelledby="modal-title"
+          aria-labelledby="modal-title-preview"
           style="display: none"
         >
           <div class="modal-content-gallery js-modal-stop">
             <button class="js-modal-close">X</button>
-            <h3 id="modal-title">Gallerie photo</h3>
+            <h3 id="modal-title-preview">Gallerie photo</h3>
             <div class="modal-gallery"></div>
             <div class="content-button">
               <button
@@ -96,11 +97,11 @@
         </aside>
         <!-- ********* Fenétre modal2 ********* -->
         <aside
-          id="modal2"
-          class="modal1"
+          id="modal-add"
+          class="modal-add"
           aria-hidden="true"
           role="dialog"
-          aria-labelledby="modal2-title"
+          aria-labelledby="modal_title_picture"
           style="display: none"
         >
           <div class="modal-content-picture js-modal-stop">
